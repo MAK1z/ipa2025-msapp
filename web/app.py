@@ -36,7 +36,7 @@ def add_comment():
 
     if ip and username and password:
         info = { "ip": ip, "username": username, "password":password}
-        res = mycol.insert_one(info)
+        mycol.insert_one(info)
     return redirect(url_for("main"))
 
 @sample.route("/delete", methods=["POST"])
@@ -44,7 +44,7 @@ def delete_comment():
     try:
         idx = int(request.form.get("idx"))
         col = {'_id':data[idx]['_id']}
-        res = mycol.delete_one(col)
+        mycol.delete_one(col)
     except Exception:
         pass
     return redirect(url_for("main"))

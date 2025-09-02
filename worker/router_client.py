@@ -2,6 +2,7 @@ from netmiko import ConnectHandler
 import ntc_templates, os, json
 from database import save_interface_status
 
+
 def get_interfaces(ip, username, password):
 
     os.environ["NET_TEXTFSM"] = os.path.join(
@@ -26,5 +27,5 @@ def get_interfaces(ip, username, password):
     save_interface_status(ip, interface)
 
 
-if __name__=='__main__':
+if __name__ == "__main__":
     get_interfaces()
