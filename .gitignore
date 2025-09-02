@@ -1,2 +1,4 @@
-/venv
-/tempdir
+venv
+db.py
+.env
+__pycache__
