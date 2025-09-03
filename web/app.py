@@ -21,10 +21,12 @@ data = mycol.find()
 mycol2 = mydb["interface_status"]
 data2 = mycol2.find().sort("timestamp", -1).limit(3)
 
+
 @sample.route("/")
 def main():
     data = mycol.find()
     return render_template("index.html", data=data)
+
 
 @sample.route("/add", methods=["POST"])
 def add_comment():
@@ -36,6 +38,7 @@ def add_comment():
         mycol.insert_one(info)
     return redirect(url_for("main"))
 
+
 @sample.route("/delete", methods=["POST"])
 def delete_comment():
     try:
@@ -46,12 +49,14 @@ def delete_comment():
         pass
     return redirect(url_for("main"))
 
+
 @sample.route("/router/<ip>")
 def router_detail(ip):
     router = mycol.find_one({"ip": ip})
     status_list = list(mycol2.find({"router_ip": ip}).sort("timestamp", -1).limit(3))
     print(status_list, flush=True)
     return render_template("router_detail.html", router=router, status_list=status_list)
+
 
 if __name__ == "__main__":
     sample.run(host="0.0.0.0", port=5050)
