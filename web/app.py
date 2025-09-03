@@ -43,7 +43,7 @@ def add_comment():
 def delete_comment():
     try:
         idx = int(request.form.get("idx"))
-        col = {'_id': data[idx]['_id']}
+        col = {"_id": data[idx]["_id"]}
         mycol.delete_one(col)
     except Exception:
         pass
