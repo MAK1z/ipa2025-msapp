@@ -42,10 +42,10 @@ jobs:
 
     - name: Build & Push Docker Images
       run: |
-        docker build -t MAK1z/worker:latest ./worker
-        docker build -t MAK1z/scheduler:latest ./scheduler
-        docker build -t MAK1z/web:latest ./web
+        docker build -t mak1z/worker:latest ./worker
+        docker build -t mak1z/scheduler:latest ./scheduler
+        docker build -t mak1z/web:latest ./web
 
-        docker push MAK1z/worker:latest
-        docker push MAK1z/scheduler:latest
-        docker push MAK1z/web:latest
+        docker push mak1z/worker:latest
+        docker push mak1z/scheduler:latest
+        docker push mak1z/web:latest
