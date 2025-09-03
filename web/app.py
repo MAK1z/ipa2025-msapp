@@ -12,8 +12,6 @@ data = []
 mongo_uri = os.environ.get("MONGO_URI")
 db_name = os.environ.get("DB_NAME")
 
-# ---- mongoDB ----
-# connect to mongo
 client = MongoClient(mongo_uri)
 mydb = client[db_name]
 mycol = mydb["routers"]
@@ -22,6 +20,7 @@ data = mycol.find()
 
 mycol2 = mydb["interface_status"]
 data2 = mycol2.find().sort("timestamp", -1).limit(3)
+
 @sample.route("/")
 def main():
     data = mycol.find()
@@ -32,9 +31,8 @@ def add_comment():
     ip = request.form.get("ip")
     username = request.form.get("username")
     password = request.form.get("password")
-
     if ip and username and password:
-        info = {"ip": ip, "username": username, "password":password}
+        info = {"ip": ip, "username": username, "password": password}
         mycol.insert_one(info)
     return redirect(url_for("main"))
 
