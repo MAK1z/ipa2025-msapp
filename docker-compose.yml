@@ -54,8 +54,6 @@ services:
   
   worker:
     build: ./worker
-    deploy:
-      replicas: 3
     depends_on:
       - rabbitmq
       - mongo
