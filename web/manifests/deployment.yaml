@@ -17,7 +17,7 @@ spec:
         - name: ipa2025-msapp-web
           image: mak1z/web:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 5050
           envFrom:
             - secretRef:
                 name: "unique-name" # ชื่อ secret ให้ตรงกับที่เราสร้าง secret ใน rancher
