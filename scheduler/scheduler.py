@@ -11,7 +11,7 @@ def scheduler():
     INTERVAL = 30.0
     next_run = time.monotonic()
     count = 0
-    host = os.getenv("RABBITMQ_HOST")    
+    host = os.getenv("RABBITMQ_HOST")
 
     while True:
         now = time.time()
